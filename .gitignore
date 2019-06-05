@@ -3,46 +3,41 @@
 # compiled output
 /dist
 /tmp
-
-## ngc logs
-*.ngfactory.ts
-*.ngsummary.json
+/out-tsc
 
 # dependencies
 /node_modules
-/bower_components
+
+# profiling files
+chrome-profiler-events.json
+speed-measure-plugin.json
 
 # IDEs and editors
 /.idea
 .project
 .classpath
+.c9/
 *.launch
 .settings/
-.vscode
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 /.sass-cache
 /connect.lock
-/coverage/*
+/coverage
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
+/typings
 
-# system files
+# System Files
 .DS_Store
 Thumbs.db
-
-# non TS files
-*.d.ts
-*.metadata.json
-*.js
-*.js.map
-!*.conf.js
-
-# build scripts
-!scripts/**/*
-!package.js
-
-# output files
-demo/dist
-bundles

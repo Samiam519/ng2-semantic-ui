@@ -1,0 +1,17 @@
+{
+    "name": "sdm-ng-semantic-ui",
+    "version": "1.0.2",
+    "publishConfig": {
+        "registry": "http://pacman.pdtec.lan:4873"
+    },
+    "peerDependencies": {
+        "@angular/common": "^7.2.0",
+        "@angular/core": "^7.2.0",
+        "bowser": "^1.9.4",
+        "date-fns": "2.0.0-alpha.27",
+        "element-closest": "^2.0.2",
+        "extend": "^3.0.2",
+        "is-ua-webview": "^1.0.1",
+        "popper.js": "^1.14.3"
+    }
+}

@@ -1,7 +1,10 @@
 {
-  "extends": ["@edcarroll/code-style/tslint", "@edcarroll/code-style/tslint-angular"],
-  "rules": {
-    "import-blacklist": false,
-    "typeof-compare": false
-  }
+    "extends": [
+        "@sdm/code-style/tslint",
+        "@sdm/code-style/tslint-angular"
+    ],
+    "rulesDirectory": [
+        "codelyzer"
+    ],
+    "rules": {}
 }
