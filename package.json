@@ -1,6 +1,6 @@
 {
   "name": "maxird-ng-semantic-ui",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/out-tsc/public_api.js",
   "types": "dist/out-tsc/public_api.d.ts",
   "files": ["dist/**/*"],
