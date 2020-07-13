@@ -1,8 +1,4 @@
 {
-    "extends": [
-        "@sdm/code-style/tslint",
-        "@sdm/code-style/tslint-angular"
-    ],
     "rulesDirectory": [
         "codelyzer"
     ],

@@ -26,5 +26,6 @@
         "dist/maxird-ng-semantic-ui/*"
       ]
     }
-  }
+  },
+  "exclude": ["node_modules", "typings", "dist"]
 }
