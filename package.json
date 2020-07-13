@@ -7,11 +7,12 @@
         "lib:compile": "ng build && npm run lib:compile:locales",
         "lib:compile:locales": "tsc --project projects/sdm-ng-semantic-ui/src/lib/behaviors/localization/tsconfig.locales.json",
         "lib:compile:locales:old": "tsc --project projects/sdm-ng-semantic-ui/src/lib/behaviors/localization/tsconfig.locales.json && node ./scripts/locales",
-        "lib:build": "npm run lib:lint && npm run lib:compile",
-        "lib:lint": "ng lint"
+        "lib:build": "npm run lib:compile"
     },
     "private": true,
-    "dependencies": {},
+    "dependencies": {
+        "node-sass": "^4.12.0"
+    },
     "devDependencies": {
         "@angular-devkit/build-angular": "0.11.0",
         "@angular-devkit/build-ng-packagr": "0.11.0",
@@ -29,7 +30,6 @@
         "@types/node": "8.10.43",
         "@types/jasmine": "2.8.16",
         "@types/jasminewd2": "2.0.3",
-        "@sdm/code-style": "1.0.2",
         "bowser": "1.9.4",
         "codelyzer": "4.5.0",
         "core-js": "2.6.5",
