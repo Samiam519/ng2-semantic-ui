@@ -2,7 +2,7 @@
     "compileOnSave": false,
     "compilerOptions": {
         "baseUrl": "./",
-        "outDir": "../../../../../../dist/sdm-ng-semantic-ui/locales",
+        "outDir": "../../../../../../dist/maxird-ng-semantic-ui/locales",
         "sourceMap": true,
         "declaration": true,
         "module": "es2015",

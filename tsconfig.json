@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "sdm-ng-semantic-ui": [
-        "dist/sdm-ng-semantic-ui"
+      "maxird-ng-semantic-ui": [
+        "dist/maxird-ng-semantic-ui"
       ],
-      "sdm-ng-semantic-ui/*": [
-        "dist/sdm-ng-semantic-ui/*"
+      "maxird-ng-semantic-ui/*": [
+        "dist/maxird-ng-semantic-ui/*"
       ]
     }
   }

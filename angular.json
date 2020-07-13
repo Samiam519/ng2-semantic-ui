@@ -3,33 +3,33 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sdm-ng-semantic-ui": {
-      "root": "projects/sdm-ng-semantic-ui",
-      "sourceRoot": "projects/sdm-ng-semantic-ui/src",
+    "maxird-ng-semantic-ui": {
+      "root": "projects/maxird-ng-semantic-ui",
+      "sourceRoot": "projects/maxird-ng-semantic-ui/src",
       "projectType": "library",
       "prefix": "sui",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/sdm-ng-semantic-ui/tsconfig.lib.json",
-            "project": "projects/sdm-ng-semantic-ui/ng-package.json"
+            "tsConfig": "projects/maxird-ng-semantic-ui/tsconfig.lib.json",
+            "project": "projects/maxird-ng-semantic-ui/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/sdm-ng-semantic-ui/src/test.ts",
-            "tsConfig": "projects/sdm-ng-semantic-ui/tsconfig.spec.json",
-            "karmaConfig": "projects/sdm-ng-semantic-ui/karma.conf.js"
+            "main": "projects/maxird-ng-semantic-ui/src/test.ts",
+            "tsConfig": "projects/maxird-ng-semantic-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/maxird-ng-semantic-ui/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/sdm-ng-semantic-ui/tsconfig.lib.json",
-              "projects/sdm-ng-semantic-ui/tsconfig.spec.json"
+              "projects/maxird-ng-semantic-ui/tsconfig.lib.json",
+              "projects/maxird-ng-semantic-ui/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -39,5 +39,5 @@
       }
     }
   },
-  "defaultProject": "sdm-ng-semantic-ui"
+  "defaultProject": "maxird-ng-semantic-ui"
 }
