@@ -1,6 +1,6 @@
 import { EventEmitter } from "@angular/core";
 
-export type SidebarTransition = "overlay" | "push" | "scale down" | "uncover" | "slide along" | "slide out";
+export type SidebarTransition = "overlay" | "push" | "scale down" | "uncover" | "slide along" | "slide out" | "squeeze";
 
 export const SidebarTransition = {
     Overlay: "overlay" as SidebarTransition,
@@ -8,7 +8,8 @@ export const SidebarTransition = {
     ScaleDown: "scale down" as SidebarTransition,
     Uncover: "uncover" as SidebarTransition,
     SlideAlong: "slide along" as SidebarTransition,
-    SlideOut: "slide out" as SidebarTransition
+    SlideOut: "slide out" as SidebarTransition,
+    Squeeze: "squeeze" as SidebarTransition
 };
 
 export type SidebarDirection = "left" | "right" | "top" | "bottom";
@@ -24,6 +25,7 @@ export class SidebarService {
     public isVisible:boolean;
     public isAnimating:boolean;
     public wasJustOpened:boolean;
+    public closeOnClick:boolean;
 
     public direction:SidebarDirection;
 
@@ -80,7 +82,8 @@ export class SidebarService {
         this.width = 260;
         this.height = 0;
 
-        this.transition = SidebarTransition.Uncover;
+        this.transition = SidebarTransition.Push;
+        this.closeOnClick = false;
     }
 
     public setVisibleState(isVisible:boolean):void {
@@ -99,5 +102,9 @@ export class SidebarService {
 
     public toggleVisibleState():void {
         this.setVisibleState(!this.isVisible);
+    }
+
+    public setCloseOnClick(bool: boolean){
+        this.closeOnClick = bool;
     }
 }

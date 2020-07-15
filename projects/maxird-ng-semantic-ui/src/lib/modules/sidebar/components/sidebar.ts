@@ -59,11 +59,21 @@ export class SuiSidebar {
         return this.service.isAnimating;
     }
 
+    @Input()
+    public get closeOnClick():boolean {
+        return this.service.closeOnClick;
+    }
+
+    public set closeOnClick(bool:boolean) {
+        this.service.setCloseOnClick(bool);
+    }
+
     constructor(private _renderer:Renderer2, private _element:ElementRef) {
         this.service = new SidebarService();
         // We set the default here as well to force the classes to update.
-        this.transition = SidebarTransition.Uncover;
+        this.transition = SidebarTransition.Push;
         this.direction = SidebarDirection.Left;
+        this.closeOnClick = false;
 
         setTimeout(() => this.updateDimensions());
         this.service.isVisibleChange.subscribe(() => this.updateDimensions());

@@ -17,7 +17,7 @@ import { SuiSearchModule } from './modules/search/search.module';
 import { SuiSelectModule } from './modules/select/select.module';
 import { SuiSidebarModule } from './modules/sidebar/sidebar.module';
 import { SuiTabsModule } from './modules/tabs/tab.module';
-import { SuiTransitionModule } from './modules/transition/transition.module';
+import { SuiTransitionModule } from './modules/transition/transition.module'
 
 @NgModule({
     exports: [

@@ -55,23 +55,28 @@ export class SuiSidebarSibling {
   private updateTransform():void {
     this._renderer.removeStyle(this._element.nativeElement, "transform");
     this._renderer.removeStyle(this._element.nativeElement, "-webkit-transform");
+    if (this.service.transition === SidebarTransition.Push) {
+      this._renderer.removeStyle(this._element.nativeElement, "width");
+    }
 
-    if (this.service.isVisible &&
-      this.service.transition !== SidebarTransition.Overlay &&
-      this.service.transition !== SidebarTransition.ScaleDown) {
-
-      const translate = this._element.nativeElement.width - this.service.width + 'px' ;
-      this._renderer.setStyle(this._element.nativeElement, "width", translate);
+    if (this.service.isVisible) {
+      if (this.service.transition !== SidebarTransition.Overlay &&
+        this.service.transition !== SidebarTransition.ScaleDown) {
+        const translate = `translate3d(${this.service.width}px, ${this.service.height}px, 0)`;
+        this._renderer.setStyle(this._element.nativeElement, "transform", translate);
+        this._renderer.setStyle(this._element.nativeElement, "-webkit-transform", translate);
+      }
+      if (this.service.transition === SidebarTransition.Push) {
+        const newWidth = (100 - (this.service.width/window.innerWidth)*100).toFixed(2) + '%';
+        this._renderer.setStyle(this._element.nativeElement, "width", newWidth);
+      }
     }
   }
 
   @HostListener("click", ["$event"])
   public onClick(event:MouseEvent):void {
-    // Do not close on click
-    /*
-      if (this.service.isVisible && !this.service.wasJustOpened) {
+      if (this.service.isVisible && !this.service.wasJustOpened && this.service.closeOnClick) {
           this.service.setVisibleState(false);
       }
-    */
   }
 }
