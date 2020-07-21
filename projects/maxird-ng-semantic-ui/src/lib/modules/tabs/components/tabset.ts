@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList, AfterContentInit } from "@angular/core";
+import {Component, ContentChildren, QueryList, AfterContentInit, Input} from "@angular/core";
 import { SuiTabHeader } from "../directives/tab-header";
 import { SuiTabContent } from "../directives/tab-content";
 import { Tab } from "../classes/tab";
@@ -29,6 +29,14 @@ export class SuiTabset implements AfterContentInit {
     public set activeTab(tab:Tab) {
         this._activeTab = tab;
         tab.isActive = true;
+    }
+
+    @Input()
+    public get activeTabIndex():number{
+        return this.activeTab.index;
+    }
+    public set activeTabIndex(newTab: number){
+        this.activeTab = this.tabs[newTab];
     }
 
     // Keeps track of the number of times `internalComponentsUpdated` is called.
