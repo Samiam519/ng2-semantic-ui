@@ -1,8 +1,10 @@
 {
     "name": "maxird-ng-semantic-ui",
-    "version": "1.0.2",
+    "version": "1.0.25",
+    "license": "MIT",
+    "author": "Sam Jimenez",
     "publishConfig": {
-        "registry": "http://pacman.pdtec.lan:4873"
+        "registry": "https://www.npmjs.com/package/maxird-ng-semantic-ui"
     },
     "peerDependencies": {
         "@angular/common": "^7.2.0",
@@ -11,7 +13,7 @@
         "date-fns": "2.0.0-alpha.27",
         "element-closest": "^2.0.2",
         "extend": "^3.0.2",
-        "is-ua-webview": "^1.0.1",
         "popper.js": "^1.14.3"
-    }
+    },
+    "dependencies": {}
 }

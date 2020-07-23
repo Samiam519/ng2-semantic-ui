@@ -1,21 +1,29 @@
 
 import { Directive, ElementRef, Host, HostBinding, HostListener, Input, Renderer2 } from "@angular/core";
 import * as bowser from "bowser";
-import * as isUAWebView from "is-ua-webview";
 import { SuiLocalizationService } from '../../../behaviors/localization/services/localization.service';
 import { DateUtil } from '../../../misc/util/helpers/date';
 import { PopupTrigger } from '../../popup/classes/popup-config';
 import { DateParser, InternalDateParser } from "../classes/date-parser";
-import "../helpers/is-webview";
 import { SuiDatepickerDirective, SuiDatepickerDirectiveValueAccessor } from "./datepicker.directive";
-
-const isWebView = isUAWebView["default"] || isUAWebView;
 
 @Directive({
     selector: "input[suiDatepicker]"
 })
 export class SuiDatepickerInputDirective {
     private _useNativeOnMobile:boolean;
+    private _rules = [
+      // if it says it's a webview, let's go with that
+      'WebView',
+      // iOS webview will be the same as safari but missing "Safari"
+      '(iPhone|iPod|iPad)(?!.*Safari)',
+      // Android Lollipop and Above: webview will be the same as native but it will contain "wv"
+      // Android KitKat to lollipop webview will put {version}.0.0.0
+      'Android.*(wv|.0.0.0)',
+      // old chrome android webview agent
+      'Linux; U; Android'
+    ];
+    private _webviewRegExp = new RegExp('(' + this._rules.join('|') + ')', 'ig');
 
     @Input("pickerUseNativeOnMobile")
     public get useNativeOnMobile():boolean {
@@ -24,7 +32,7 @@ export class SuiDatepickerInputDirective {
 
     public set useNativeOnMobile(fallback:boolean) {
         this._useNativeOnMobile = fallback;
-        const isOnMobile = bowser.mobile || bowser.tablet || isWebView(navigator.userAgent);
+        const isOnMobile = bowser.mobile || bowser.tablet || this.isWebview(navigator.userAgent);
         this.fallbackActive = this.useNativeOnMobile && isOnMobile;
     }
 
@@ -135,5 +143,9 @@ export class SuiDatepickerInputDirective {
     @HostListener("focusout")
     public onFocusOut():void {
         this.valueAccessor.onTouched();
+    }
+
+    public isWebview(ua) {
+        return !!ua.match(this._webviewRegExp);
     }
 }
